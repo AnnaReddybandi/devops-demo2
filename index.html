@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Car Rental Application</h1>
+    </header>
+
+    <main>
+        <section class="add-car">
+            <h2>Add a New Car</h2>
+            <form id="carForm">
+                <label for="brand">Brand:</label>
+                <input type="text" id="brand" name="brand" required>
+
+                <label for="model">Model:</label>
+                <input type="text" id="model" name="model" required>
+
+                <label for="price">Price per Day:</label>
+                <input type="number" id="price" name="price" required>
+
+                <button type="submit">Add Car</button>
+            </form>
+        </section>
+
+        <section class="car-list">
+            <h2>Available Cars</h2>
+            <ul id="cars">
+                <li>No cars added yet.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Car Rental App</p>
+    </footer>
+
+    <script>
+        const carForm = document.getElementById('carForm');
+        const carsList = document.getElementById('cars');
+
+        carForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const brand = document.getElementById('brand').value;
+            const model = document.getElementById('model').value;
+            const price = document.getElementById('price').value;
+
+            const li = document.createElement('li');
+            li.textContent = `${brand} ${model} - $${price} per day`;
+            carsList.appendChild(li);
+
+            carForm.reset();
+        });
+    </script>
+</body>
+</html>
